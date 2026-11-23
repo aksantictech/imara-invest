@@ -107,3 +107,56 @@ footer { background: var(--ink); color: #d6e7e8; }
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
 
+
+.hero { background: var(--deep); }
+.hero::after, .hero-media, .hero-media img { position: absolute; inset: 0; }
+.hero-media { z-index: -2; }
+.hero::after {
+  content: "";
+  z-index: -1;
+  background: linear-gradient(95deg, #081c31f5 3%, #081c31dd 39%, #08274760 100%), linear-gradient(0deg,#081c31,#081c3100 55%);
+}
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; opacity: 0; transition: opacity .8s ease; }
+.hero-media .current { opacity: 1; }
+.hero-foot { align-items: center; gap: .75rem 1.4rem; }
+.carousel-controls:not([hidden]) { display: flex; gap: .25rem; align-items: center; margin-left: auto; }
+.carousel-controls button { cursor: pointer; color: white; }
+.slide-dot { width: 28px; height: 32px; border: 0; background: transparent; }
+.slide-dot::before { content: ""; display: block; margin: auto; width: 9px; height: 9px; border: 1px solid white; border-radius: 50%; }
+.slide-dot[aria-pressed="true"]::before { background: var(--gold); border-color: var(--gold); }
+.slide-pause { min-width: 84px; min-height: 34px; border: 1px solid #ffffff80; border-radius: 5px; background: var(--ink); font: inherit; }
+.event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.event-grid img { width: 100%; height: auto; aspect-ratio: 1.35; object-fit: cover; border-radius: 16px; }
+.event-grid li { margin-bottom: .65rem; }
+.event-grid ul { padding-left: 1.2rem; margin-bottom: 1.6rem; }
+.event-grid li::marker { color: var(--green); }
+.partners { padding-top: 0; }
+.contact-links { display: flex; flex-direction: column; align-items: start; gap: .55rem; margin-bottom: 1.4rem; }
+.contact-links a { color: var(--gold); text-underline-offset: .25em; }
+
+.chat-widget { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 6; display: grid; justify-items: end; gap: .65rem; pointer-events: none; }
+.chat-widget > * { pointer-events: auto; }
+.chat-widget [hidden] { display: none; }
+.chat-launch { cursor: pointer; border-color: var(--gold); box-shadow: 0 8px 24px #081c313d; }
+.chat-panel { width: min(23rem, calc(100vw - 2.5rem)); max-height: calc(100dvh - 6rem); display: flex; flex-direction: column; background: white; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 10px 40px #081c313d; }
+.chat-header { display: flex; align-items: center; justify-content: space-between; gap: .5rem; background: var(--deep); color: white; padding: .7rem 1rem; border-radius: 13px 13px 0 0; }
+.chat-header h2 { font-size: 1.15rem; margin: 0; letter-spacing: 0; }
+.chat-close { width: 36px; height: 36px; border: 0; border-radius: 5px; background: transparent; color: white; font-size: 1.5rem; cursor: pointer; }
+.chat-body { padding: 1rem; overflow-y: auto; }
+.chat-topics { display: flex; flex-wrap: wrap; gap: .45rem; }
+.chat-topics button, .chat-form button { border: 1px solid #9bc8bd; border-radius: 6px; background: #eaf3f0; color: var(--ink); padding: .55rem .65rem; font: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.chat-answer:not(:empty) { margin-top: 1rem; background: var(--bg); border-left: 3px solid var(--green); padding: .75rem; }
+.chat-answer p { margin: 0 0 .45rem; }
+.chat-answer a { color: var(--green); font-weight: 800; }
+.chat-form { padding: .8rem 1rem; border-top: 1px solid var(--line); }
+.chat-form label { display: block; margin-bottom: .35rem; font-weight: 800; font-size: .86rem; }
+.chat-form div { display: flex; gap: .4rem; }
+.chat-form input { flex: 1; min-width: 0; border: 1px solid #8094a2; border-radius: 6px; padding: .45rem; font: inherit; }
+.chat-form button { background: var(--deep); color: white; border-color: var(--deep); }
+footer { padding-bottom: 4rem; }
+@media (max-width: 800px) {
+  .event-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 650px) {
+  .carousel-controls:not([hidden]) { margin-left: 0; width: 100%; }
+}
